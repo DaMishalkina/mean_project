@@ -28,32 +28,32 @@ export class RegComponent implements OnInit {
     };
 
     if (!this.checkForm.checkName(user.name)){
-      this.flashMessages.show('Имя пользователя не введено!', {
+      this.flashMessages.show('Username is not entered', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
-      console.log('Имя пользователя не введено!');
+      console.log('User name is not entered');
       return false;
     }  else if (!this.checkForm.checkLogin(user.login)){
-      this.flashMessages.show('Логин пользователя не введен!', {
+      this.flashMessages.show('Login is not entered', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
-      console.log('Логин пользователя не введен!');
+      console.log('Login is not entered');
       return false;
     } else if (!this.checkForm.checkEmail(user.email)){
-      this.flashMessages.show('Email пользователя не введен!', {
+      this.flashMessages.show('Email is not entered', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
-      console.log('Email пользователя не введен!');
+      console.log('Email is not entered');
       return false;
     } else if (!this.checkForm.checkPassword(user.password)){
-      this.flashMessages.show('Пароль пользователя не введен!', {
+      this.flashMessages.show('Password is not entered', {
         cssClass: 'alert-danger',
         timeout: 4000
       });
-      console.log('Пароль пользователя не введен!');
+      console.log('Password is not entered');
       return false;
     }
   }
