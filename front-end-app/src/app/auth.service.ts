@@ -4,6 +4,8 @@ import {HttpClient, HttpHeaderResponse, HttpHeaders, HttpResponse} from '@angula
 import {Observable} from "rxjs";
 // import objectContaining = jasmine.objectContaining;
 // import {HttpClient} from "@angular/common";
+import {tokenNotExpired} from "angular2-jwt";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -45,6 +47,10 @@ export class AuthService {
     this.token = null;
     this.user = null;
     localStorage.clear();
+  }
+
+  isLoggedIn(){
+    return tokenNotExpired();
   }
 }
 
