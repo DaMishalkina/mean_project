@@ -3,7 +3,7 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" [routerLink]="['/']">Home</a>
   </nav>
-  <a *ngIf="authService.isLoggedIn()" class="btn-outline-warning mr-3" [routerLink]="['/auth']">Profile</a>
+  <a *ngIf="authService.isLoggedIn()" class="btn-outline-warning mr-3" [routerLink]="['/dashboard']">Profile</a>
   <a *ngIf="!authService.isLoggedIn()" class="btn btn-outline-primary mr-3" [routerLink]="['/reg']">Sign up</a>
   <a *ngIf="!authService.isLoggedIn()" class="btn btn-outline-primary" [routerLink]="['/auth']">Sign in</a>
 </div>
