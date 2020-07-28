@@ -22,7 +22,7 @@ export class AuthService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http.post(
-      'http://localhost:3000/account/reg',
+      'account/reg',
       user,
       {headers: headers});
   }
@@ -31,7 +31,7 @@ export class AuthService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http.post(
-      'http://localhost:3000/account/auth',
+      'account/auth',
       user,
       {headers: headers});
   }
