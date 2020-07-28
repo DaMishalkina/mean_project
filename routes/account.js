@@ -17,11 +17,11 @@ router.post ('/reg', function (req, res) {
         password: req.body.password
     });
 
-    User.addUser(newUser, (errr, user) => {
+    User.addUser(newUser, (err, user) => {
         if(err)
-            res.json({success: false, msg: 'Пользователь не был добавлен!'});
+            res.json({success: false, msg: 'User was not entered'});
         else
-            res.json({success: true, msg: 'Пользователь добавлен!'});
+            res.json({success: true, msg: 'User is entered successfully'});
 
     });
 });
@@ -33,11 +33,11 @@ router.post ('/auth', function (req, res) {
     User.getUserByLogin(login, (err, user) => {
         if (err) throw err;
         if (!user)
-            return res.json({success: false, msg: "Такой пользователь был не найден"});
+            return res.json({success: false, msg: "This user is not found"});
         User.comparePass(password, user.password, (err, isMatch) => {
             if(err) throw err;
             if(isMatch){
-              const   token = jwt.sign(user, config.secret, {
+              const   token = jwt.sign(user.toJSON(), config.secret, {
                   expiresIn: 3600 * 24
               });
 
@@ -52,13 +52,13 @@ router.post ('/auth', function (req, res) {
                   }
               });
             } else
-                return res.json({success: false, msg: "Пароли не совпадают"});
+                return res.json({success: false, msg: "Invalid password"});
         });
     });
 });
 
 router.get ('/dashboard', passport.authenticate('jwt', {session: false}), function (req, res) {
-    res.send('Личный кабинет');
+    res.send('Personal area');
 });
 
 module.exports = router;
